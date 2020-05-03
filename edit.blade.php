@@ -1,28 +1,28 @@
-@extends('layout/main')
+@extends('layout/app')
 
-@section('title','Form edit roster')
+@section('title','Edit Data Siswa')
 
 @section('container')
 
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <h1 class="mt-3">Form Edit Roster</h1>
+            <h1 class="mt-3">Edit Data Siswa</h1>
             
-    <form method="post" action="/roster/{{ $roster->id }}">
+    <form method="post" action="/siswa/{{ $siswa->id }}">
     @method('patch')
     @csrf
-        <div class="form-group">
-            <label for="kode">Kode</label>
-            <input type="text" class="form-control" id="kode" placeholder="Masukan kode" name="kode" value="{{ $roster->kode }}">
+    <div class="form-group">
+            <label for="npm">Npm</label>
+            <input type="text" class="form-control" id="npm" placeholder="Masukan npm" name="npm" required>
         </div>
         <div class="form-group">
-            <label for="namadosen">Nama Dosen</label>
-            <input type="text" class="form-control" id="namadosen" placeholder="Masukan namadosen" name="namadosen" value="{{ $roster->namadosen }}">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" class="form-control" id="nama" placeholder="Masukan nama" name="nama">
         </div>
         <div class="form-group">
-            <label for="matakuliah">Mata Kuliah</label>
-            <input type="text" class="form-control" id="matakuliah" placeholder="Masukan matakuliah" name="matakuliah" value="{{ $roster->matakuliah }}">
+            <label for="kelas">Kelas</label>
+            <input type="text" class="form-control" id="kelas" placeholder="Masukan kelas" name="kelas">
         </div>
         <button type="submit" class="btn btn-primary">Ubah Data</button>
     </form>

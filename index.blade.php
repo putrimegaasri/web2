@@ -1,46 +1,37 @@
-@extends('layout/main')
+@extends('layout/app')
 
-@section('title','Roster Kuliah')
+@section('title','Data Siswa')
 
 @section('container')
 
 <div class="container">
     <div class="row">
-        <div class="col-15">
-            <h1 class="mt-3">Roster Kuliah</h1>
+        <div class="col-6">
+            <h1 class="mt-3">Data Siswa</h1>
             
             @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
                 </div>
             @endif
-            
-            <table class="table table-dark">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Kode</th>
-                    <th scope="col">Nama Dosen</th>
-                    <th scope="col">Mata Kuliah</th>
-                  </tr>
-                </thead>    
-                <tbody>
-                @foreach( $roster as $roster )
+            @foreach( $siswa as $siswa )
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center"> 
                     <tr>
-                    <th scope="row">{{ $loop->literation }}</th>
-                    <td>{{ $roster->kode}}</td>
-                    <td>{{ $roster->namadosen }}</td>
-                    <td>{{ $roster->matakuliah }}</td>
+                    <td>{{ $siswa->nama }}</td>
                     <td>
-                    <a href="/roster/{{ $roster->id }}" class="badge badge-info">Detail</a>
+                    <a href="/siswa/{{ $siswa->id }}" class="badge badge-info">Detail</a>
                     </td>
                     </tr>
-                @endforeach
-                </tbody>
-                </table>
+                </li>
+            </ul>
+        </tbody>
+    </table>
+    @endforeach
             
         
 
-            <a href="/roster/create" class="btn btn-primary my-3">create</a>
+            <a href="/siswa/create" class="btn btn-primary my-3">create</a>
 
         </div>
     </div>
